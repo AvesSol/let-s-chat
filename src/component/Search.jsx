@@ -92,6 +92,7 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { db } from "../firebase";
+import { CiSearch } from "react-icons/ci";
 import { AuthContext } from "../context/AuthContext";
 const Search = () => {
   const [username, setUsername] = useState("");
@@ -162,7 +163,8 @@ const Search = () => {
 
   return (
     <div className="border-b-[1px] border-[#202020] p-2">
-      <input
+     <div className="flex justify-between items-center">
+     <input
         onChange={(e) => {
           setUsername(e.target.value);
         }}
@@ -171,6 +173,8 @@ const Search = () => {
         type="text"
         placeholder="Find user"
       />
+      <button onClick={handleSearch} className="text-lg font-bold text-white "> <CiSearch/> </button>
+     </div>
       {user && (
         <div onClick={handleSelect} className="search-Item cursor-pointer flex justify-start items-center gap-4 my-1">
           <img
